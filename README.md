@@ -754,6 +754,7 @@ For VPC CNI <v1.12.0, IPAMD still depends on CRI to track IP allocations using p
 `L-IPAMD`(aws-node daemonSet) running on every worker node requires access to the Kubernetes API server. If it can **not** reach
 the Kubernetes API server, ipamd will exit and CNI will not be able to get any IP address for Pods. Here is a way to confirm if
 `aws-node` has access to the Kubernetes API server.
+Be sure that the kube-proxy is working and up-to-date. Kube-proxy should setup rules for aws-node to reach API Server on startup. 
 
 ```
 # find out Kubernetes service IP, e.g. 10.0.0.1
